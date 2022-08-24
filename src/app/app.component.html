@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <span class="logo" [routerLink]="'/'">
+    <mat-icon class="mr-1">local_fire_department</mat-icon>
+    <span>Intelvision hub</span>
+  </span>
+
+  <ul class="menu">
+    <li class="menu__item" [routerLink]="'/angular-resources'">
+      <span>Angular resources</span>
+    </li>
+    <li class="menu__item" [routerLink]="'/react-resources'">
+      <span>React resources</span>
+    </li>
+    <li class="menu__item" [routerLink]="'/dot-net-resources'">
+      <span>.NET resources</span>
+    </li>
+  </ul>
+
+  <div class="header-spacer"></div>
+
+  <div class="user-info">
+    {{userName}}
+    <button *ngIf="auth.angularFireAuth.user | async as user; else showLogout" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <ng-template #showLogout>
+   <button mat-raised-button color="basic" (click)="login()">Login</button>
+  </ng-template>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "useful-resources-4cda1": {
+      "hosting": {
+        "angular-useful-resources": [
+          "useful-resources-4cda1"
+        ]
+      }
+    }
+  }
+}

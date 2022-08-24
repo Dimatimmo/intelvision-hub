@@ -1,0 +1,19 @@
+<h1>.NET resources</h1>
+
+
+
+<mat-tab-group>
+   <mat-tab label="Read"> 
+      <app-resource-table 
+         [entityType]="entityType.DotNetResource"
+      >
+      </app-resource-table>
+   </mat-tab>
+   <mat-tab label="Watch">
+       <app-resource-video-list
+       [entityType]="entityType.DotNetVideoResource"
+       >
+       </app-resource-video-list> 
+   </mat-tab>
+   <mat-tab label="Learn"> Content 3 </mat-tab>
+</mat-tab-group>

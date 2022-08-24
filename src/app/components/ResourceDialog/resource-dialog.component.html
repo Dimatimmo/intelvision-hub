@@ -1,0 +1,27 @@
+<form [formGroup]="resourceForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" formControlName="title" required>
+        <!-- <mat-error *ngIf="resourceForm?.controls?.name?.invalid">test</mat-error> -->
+      </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Description" formControlName="description" required>
+        <!-- <mat-error *ngIf="resourceForm?.controls?.name?.invalid">test</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Link title</mat-label>
+        <input matInput placeholder="Link title" formControlName="linkTitle" required>
+        <!-- <mat-error *ngIf="resourceForm?.controls?.name?.invalid">test</mat-error> -->
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Link</mat-label>
+        <input matInput placeholder="Link" formControlName="link" required>
+        <!-- <mat-error *ngIf="resourceForm?.controls?.name?.invalid">test</mat-error> -->
+      </mat-form-field>
+  </form>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="submitDialog()">{{data?.resource?.id ? 'Edit resource' : 'Add resource'}}</button>
+    <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+</div>

@@ -1,0 +1,29 @@
+
+<div class="action__container">
+    <button mat-raised-button color="primary" class="add__resource__btn" (click)="openDialog()">Add resource</button>
+</div>
+
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let videoResource of videoResources$ | async">
+        <mat-card class="example-card">
+            <div class="video-container">
+                <iframe 
+                    [src]="videoResource.videoLink | safe"
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <mat-card-actions >
+                <button mat-icon-button (click)="editVideoResource(videoResource)" >
+                    <mat-icon>edit</mat-icon>
+                 </button>
+                <button mat-icon-button (click)="removeVideoResource(videoResource.id!)" >
+                   <mat-icon>delete</mat-icon>
+                </button>
+              </mat-card-actions>
+        </mat-card>
+
+    </mat-grid-tile>
+  </mat-grid-list>

@@ -1,0 +1,11 @@
+<form [formGroup]="videoResourceForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Video link</mat-label>
+        <input matInput placeholder="Title" formControlName="videoLink" required>
+        <!-- <mat-error *ngIf="resourceForm?.controls?.name?.invalid">test</mat-error> -->
+      </mat-form-field>
+  </form>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="submitDialog()">{{data?.videoResource?.id ? 'Edit video resource' : 'Add video resource'}}</button>
+    <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+</div>
