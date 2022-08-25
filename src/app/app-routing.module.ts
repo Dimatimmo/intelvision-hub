@@ -9,6 +9,7 @@ import { ReactResourcesComponent } from './components/ReactResources/react-resou
 import { VerifyEmailPageComponent } from './components/VerifyEmailPage/verify-email-page.component';
 import { AuthGuard } from './components/guards/auth.guard';
 import { EmailGuard } from './components/guards/email.guard';
+import { NodeResourcesComponent } from './components/NodeResources/node-resources.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'dot-net-resources',
     component: DotNetResourcesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'node-resources',
+    component: NodeResourcesComponent,
     canActivate: [AuthGuard],
   },
   {

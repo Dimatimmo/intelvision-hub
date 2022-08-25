@@ -14,13 +14,16 @@
     <li class="menu__item" [routerLink]="'/dot-net-resources'">
       <span>.NET resources</span>
     </li>
+    <li class="menu__item" [routerLink]="'/node-resources'">
+      <span>Node resources</span>
+    </li>
   </ul>
 
   <div class="header-spacer"></div>
 
   <div class="user-info">
     {{userName}}
-    <button *ngIf="auth.angularFireAuth.user | async as user; else showLogout" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <button *ngIf="auth.angularFireAuth.user | async as user; else showLogout" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">

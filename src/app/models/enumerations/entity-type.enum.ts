@@ -5,4 +5,6 @@ export enum EntityType {
   ReactVideoResource = 'ReactVideoResource',
   DotNetResource = 'DotNetResource',
   DotNetVideoResource = 'DotNetVideoResource',
+  NodeResource = 'NodeResource',
+  NodeVideoResource = 'NodeVideoResource',
 }

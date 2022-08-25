@@ -21,7 +21,7 @@ export class ResourceDialogComponent {
     this.resourceForm = new FormGroup({
       title: new FormControl(this.data?.resource?.title || ''),
       description: new FormControl(this.data?.resource?.description || ''),
-      linkTitle: new FormControl(this.data?.resource?.link || ''),
+      linkTitle: new FormControl(this.data?.resource?.linkTitle || ''),
       link: new FormControl(this.data?.resource?.link || ''),
     });
   }

@@ -43,6 +43,7 @@ import { environment } from '../environments/environment';
 import { SafePipe } from './pipes/safe.pipe';
 import { AuthGuard } from './components/guards/auth.guard';
 import { EmailGuard } from './components/guards/email.guard';
+import { NodeResourcesComponent } from './components/NodeResources/node-resources.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { EmailGuard } from './components/guards/email.guard';
     VideoResourceDialogComponent,
     VerifyEmailPageComponent,
     SafePipe,
+    NodeResourcesComponent,
   ],
   imports: [
     BrowserModule,
