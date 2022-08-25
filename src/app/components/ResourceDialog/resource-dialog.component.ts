@@ -1,9 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EntityType } from 'src/app/models/enumerations/entity-type.enum';
 import { ResourceModel } from 'src/app/models/resource.model';
 import { ResourceService } from 'src/app/services/resources.service';
+import { urlReg } from 'src/app/static/url-pattern';
 
 @Component({
   selector: 'app-resource-dialog',
@@ -19,10 +20,22 @@ export class ResourceDialogComponent {
     public data: { resource: ResourceModel; entityType: EntityType }
   ) {
     this.resourceForm = new FormGroup({
-      title: new FormControl(this.data?.resource?.title || ''),
-      description: new FormControl(this.data?.resource?.description || ''),
-      linkTitle: new FormControl(this.data?.resource?.linkTitle || ''),
-      link: new FormControl(this.data?.resource?.link || ''),
+      title: new FormControl(
+        this.data?.resource?.title || '',
+        Validators.required
+      ),
+      description: new FormControl(
+        this.data?.resource?.description || '',
+        Validators.required
+      ),
+      linkTitle: new FormControl(
+        this.data?.resource?.linkTitle || '',
+        Validators.required
+      ),
+      link: new FormControl(this.data?.resource?.link || '', [
+        Validators.required,
+        Validators.pattern(urlReg),
+      ]),
     });
   }
 
@@ -46,5 +59,6 @@ export class ResourceDialogComponent {
           .subscribe(() => {
             this.closeDialog();
           });
+    // this.resourceForm.markAllAsTouched();
   }
 }

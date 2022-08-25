@@ -22,6 +22,6 @@
       </mat-form-field>
   </form>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="submitDialog()">{{data?.resource?.id ? 'Edit resource' : 'Add resource'}}</button>
+    <button mat-raised-button color="primary" [disabled]="!resourceForm.valid" (click)="submitDialog()">{{data?.resource?.id ? 'Edit resource' : 'Add resource'}}</button>
     <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
 </div>

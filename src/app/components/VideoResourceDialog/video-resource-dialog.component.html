@@ -2,10 +2,13 @@
     <mat-form-field appearance="fill">
         <mat-label>Video link</mat-label>
         <input matInput placeholder="Title" formControlName="videoLink" required>
-        <!-- <mat-error *ngIf="resourceForm?.controls?.name?.invalid">test</mat-error> -->
       </mat-form-field>
+      <div *ngIf="videoResourceForm.controls.videoLink.touched && videoResourceForm.invalid" class="alert alert-danger">
+        <div *ngIf="videoResourceForm.controls.videoLink.errors?.required">URL is required.</div>
+        <div *ngIf="videoResourceForm.controls.videoLink.errors?.pattern">Please enter valid url.</div>
+    </div>
   </form>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="submitDialog()">{{data?.videoResource?.id ? 'Edit video resource' : 'Add video resource'}}</button>
+    <button mat-raised-button color="primary" [disabled]="!videoResourceForm.valid" (click)="submitDialog()">{{data?.videoResource?.id ? 'Edit video resource' : 'Add video resource'}}</button>
     <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
 </div>

@@ -1,10 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EntityType } from 'src/app/models/enumerations/entity-type.enum';
-import { ResourceModel } from 'src/app/models/resource.model';
 import { VideoResourceModel } from 'src/app/models/video-resource.model';
 import { ResourceService } from 'src/app/services/resources.service';
+import { urlReg } from 'src/app/static/url-pattern';
 
 @Component({
   selector: 'app-video-resource-dialog',
@@ -20,7 +20,10 @@ export class VideoResourceDialogComponent {
     public data: { videoResource: VideoResourceModel; entityType: EntityType }
   ) {
     this.videoResourceForm = new FormGroup({
-      videoLink: new FormControl(this.data?.videoResource?.videoLink || ''),
+      videoLink: new FormControl(this.data?.videoResource?.videoLink || '', [
+        Validators.required,
+        Validators.pattern(urlReg),
+      ]),
     });
   }
 
